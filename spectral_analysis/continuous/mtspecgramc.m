@@ -56,10 +56,11 @@ function [S,t,f,Serr]=mtspecgramc(data,movingwin,params)
 if nargin < 2; error('Need data and window parameters'); end;
 if nargin < 3; params=[]; end;
 
-[tapers,pad,Fs,fpass,err,trialave,params]=getparams(params);
 if length(params.tapers)==3 & movingwin(1)~=params.tapers(2);
     error('Duration of data in params.tapers is inconsistent with movingwin(1), modify params.tapers(2) to proceed')
 end
+[tapers,pad,Fs,fpass,err,trialave,params]=getparams(params);
+
 
 if nargout > 3 && err(1)==0; 
 %   Cannot compute error bars with err(1)=0. change params and run again.
