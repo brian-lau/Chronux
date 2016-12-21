@@ -82,7 +82,7 @@ if isempty(f0);
        datafit(:,ch)=exp(i*2*pi*(0:N-1)'*fsig/Fs)*A(fmax(ch).loc,ch)+exp(-i*2*pi*(0:N-1)'*fsig/Fs)*conj(A(fmax(ch).loc,ch));
    end;
 else
-   indx = zeros( length(f0) );
+   indx = zeros( size(f0) );
    for n=1:length(f0);
        [fsig,indx(n)]=min(abs(f-f0(n)));
    end;
